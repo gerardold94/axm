@@ -4,25 +4,35 @@
 
 import React from 'react';
 import {Provider} from 'react-redux';
-import store from '@/store';
-import {StatusBar, useColorScheme, SafeAreaView} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import Login from '@components/login/Login';
+
+import {store} from '@/store';
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+  //const isDarkMode = useColorScheme() === 'dark';
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+  //const backgroundStyle = {
+  //backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  //};
 
   return (
     <Provider store={store}>
-      <SafeAreaView style={backgroundStyle}>
-        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      </SafeAreaView>
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: false,
+          }}>
+          <Stack.Screen name="Login" component={Login} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </Provider>
   );
 };
 
+export default App;
 export default App;
