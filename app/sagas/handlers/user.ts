@@ -25,7 +25,7 @@ export function* handleLogin(action: Action) {
   }
 }
 
-export function* handleSetUser(action) {
+export function* handleSetUser(action: any) {
   if (!action.payload.isLogged) {
     return;
   }
