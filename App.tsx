@@ -2,18 +2,13 @@
  * @format
  */
 
-import React from 'react';
-import {Provider as StoreProvider, useSelector} from 'react-redux';
-import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
-import Login from '@components/login/Login';
-import HomeScreen from '@components/home/HomeScreen';
-
+import React from 'react';
+import {Provider as StoreProvider} from 'react-redux';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
+import {RootNavigation} from '@components/RootNavigation';
 import {store} from '@/store';
-
-const Stack = createNativeStackNavigator();
 
 const theme = {
   ...DefaultTheme,
@@ -28,16 +23,11 @@ const App = () => {
   return (
     <StoreProvider store={store}>
       <PaperProvider theme={theme}>
-        <NavigationContainer>
-          <Stack.Navigator
-            initialRouteName="Login"
-            screenOptions={{
-              headerShown: false,
-            }}>
-            <Stack.Screen name="Login" component={Login} />
-            <Stack.Screen name="HomeScreen" component={HomeScreen} />
-          </Stack.Navigator>
-        </NavigationContainer>
+        <SafeAreaProvider>
+          <NavigationContainer>
+            <RootNavigation />
+          </NavigationContainer>
+        </SafeAreaProvider>
       </PaperProvider>
     </StoreProvider>
   );

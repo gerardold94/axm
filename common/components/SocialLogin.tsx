@@ -7,14 +7,14 @@ const SocialLogin = () => {
     <View style={styles.socialLogin}>
       <IconButton
         icon="facebook"
-        size={48}
+        size={24}
         color={Colors.blue700}
         style={styles.socialButton}
         onPress={() => {}}
       />
       <IconButton
         icon="google"
-        size={48}
+        size={24}
         color={Colors.red600}
         style={styles.socialButton}
         onPress={() => {}}
@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.23,
     shadowRadius: 2.62,
 
-    elevation: 4,
+    elevation: 5,
+    backgroundColor: 'white',
   },
   socialLogin: {flexDirection: 'row', justifyContent: 'center'},
 });

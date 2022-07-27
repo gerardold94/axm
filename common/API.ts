@@ -3,7 +3,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Create axios client, pre-configured with baseURL
 const API = axios.create({
-  baseURL: 'http://localhost:3333/api/v1',
+  baseURL: 'http://127.0.0.1:3333/api/v1'
+  // baseURL: 'http://10.0.2.2:3333/api/v1',
 });
 
 // Set JSON Web Token in Client to be included in all calls
